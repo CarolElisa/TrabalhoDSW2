@@ -3,7 +3,7 @@
 ## Grupo:
 
       Caroline Elisa Duarte de Souza - 795565
-      Giovani
+      Giovani Guidini - 790862
       Jonathan
 ----------------------------------------------------
 
