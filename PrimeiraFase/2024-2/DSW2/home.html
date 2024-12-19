@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealizeJá - Dashboard</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1c3d5a;
+            color: #ffffff;
+            padding: 10px 20px;
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .header .logo img {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .header .user-actions a {
+            text-decoration: none;
+            color: #ffffff;
+            margin-left: 15px;
+            font-weight: bold;
+        }
+
+        .header .user-actions a:hover {
+            text-decoration: underline;
+        }
+
+        /* Container principal */
+        .main-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .main-container h1 {
+            font-size: 1.8rem;
+            color: #1c3d5a;
+            margin-bottom: 20px;
+        }
+
+        .toggle-role {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .toggle-role button {
+            background-color: #ff7c1f;
+            color: #ffffff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+            width: 48%;
+        }
+
+        .toggle-role button.active {
+            background-color: #e56b1a;
+        }
+
+        .toggle-role button:hover {
+            background-color: #e56b1a;
+        }
+
+        /* Tabelas de serviços */
+        .service-section {
+            margin-bottom: 20px;
+        }
+
+        .service-section h2 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .service-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .service-table th, .service-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .service-table th {
+            background-color: #1c3d5a;
+            color: #ffffff;
+        }
+
+        .service-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .service-table tr:hover {
+            background-color: #ddd;
+        }
+
+        .action-btn {
+            background-color: #1c3d5a;
+            color: #ffffff;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .action-btn:hover {
+            background-color: #16334a;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1c3d5a;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        .footer span {
+            color: #ff7c1f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">
+            <img src="logo.png" alt="Logo RealizeJá">
+            RealizeJá - Dashboard
+        </div>
+        <div class="user-actions">
+            <a href="meus_dados.html">Meus Dados</a>
+            <a href="inicio.html">Sair</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <h1>Bem-vindo(a), [Nome do Usuário]!</h1>
+
+        <!-- Alternar entre contratante e prestador -->
+        <div class="toggle-role">
+            <button class="active" onclick="toggleRole('contratante')">Sou Contratante</button>
+            <button onclick="toggleRole('prestador')">Sou Prestador de Serviços</button>
+        </div>
+
+        <!-- Serviços -->
+        <div id="contratante-section" class="service-section">
+            <h2>Serviços Solicitados</h2>
+            <table class="service-table">
+                <thead>
+                    <tr>
+                        <th>Serviço</th>
+                        <th>Descrição</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Conserto de Ar Condicionado</td>
+                        <td>Preciso de um técnico para conserto.</td>
+                        <td>Pendente</td>
+                        <td><button class="action-btn" style="margin-top: 10px;" onclick="window.location.href='editar_servico.html?id_servico=123'">Editar</button>
+                            <button class="action-btn">Excluir</button></td>
+                    </tr>
+                    <!-- Mais serviços aqui -->
+                </tbody>
+            </table>
+            <button class="action-btn" style="margin-top: 10px;" onclick="window.location.href='criar_servico.html?tipo=solicitacao'">Criar Nova Solicitação</button>
+        </div>
+
+        <div id="prestador-section" class="service-section" style="display: none;">
+            <h2>Serviços Oferecidos</h2>
+            <table class="service-table">
+                <thead>
+                    <tr>
+                        <th>Serviço</th>
+                        <th>Descrição</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Casa</td>
+                        <td>Serviços de Faxina.</td>
+                        <td>Desativado</td>
+                        <td><button class="action-btn" onclick="window.location.href='editar_servico.html?id_servico=123'">Editar</button> <button class="action-btn">Excluir</button></td>
+                    </tr>
+                    <!-- Mais serviços aqui -->
+                    <tr>
+                        <td>asas</td>
+                        <td>Serviços de poda e manutenção de jardins.</td>
+                        <td>Ativo</td>
+                        <td><button class="action-btn" onclick="window.location.href='editar_servico.html?id_servico=123'">Editar</button>
+                            <button class="action-btn">Excluir</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="action-btn" style="margin-top: 10px;" onclick="window.location.href='criar_servico.html?tipo=oferta'">Criar Nova Oferta</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        © 2024 <span>RealizeJá</span> - Todos os direitos reservados
+    </div>
+
+    <script>
+        // Função para alternar entre contratante e prestador
+        function toggleRole(role) {
+            const contratanteSection = document.getElementById('contratante-section');
+            const prestadorSection = document.getElementById('prestador-section');
+            const buttons = document.querySelectorAll('.toggle-role button');
+
+            if (role === 'contratante') {
+                contratanteSection.style.display = 'block';
+                prestadorSection.style.display = 'none';
+                buttons[0].classList.add('active');
+                buttons[1].classList.remove('active');
+            } else {
+                contratanteSection.style.display = 'none';
+                prestadorSection.style.display = 'block';
+                buttons[0].classList.remove('active');
+                buttons[1].classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
