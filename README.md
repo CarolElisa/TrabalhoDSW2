@@ -4,7 +4,7 @@
 
       Caroline Elisa Duarte de Souza - 795565
       Giovani Guidini - 790862
-      Jonathan
+      Jonathan Braian Dias Vaz - 790870
 ----------------------------------------------------
 
 ## Requisitos:
