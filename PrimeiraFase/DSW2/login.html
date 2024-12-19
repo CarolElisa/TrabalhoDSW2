@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realizejá - Login</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1c3d5a;
+            color: #ffffff;
+            padding: 10px 20px;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .header .logo img {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .header .cta {
+            background-color: #ff7c1f;
+            color: #ffffff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .header .cta:hover {
+            background-color: #e56b1a;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            text-align: center;
+            width: 350px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #1c3d5a;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: #ff7c1f;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #e56b1a;
+        }
+
+        .forgot-password {
+            font-size: 0.9rem;
+            color: #888;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        .forgot-password:hover {
+            color: #1c3d5a;
+        }
+
+        .signup {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .signup a {
+            color: #ff7c1f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .signup a:hover {
+            color: #e56b1a;
+        }
+
+        .footer {
+            background-color: #1c3d5a;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .footer span {
+            color: #ff7c1f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">
+            <img src="logo.png" alt="Logo Realizejá">
+            Conectando profissionais e tarefas pendentes
+        </div>
+        <a href="criar_conta.html" class="cta">Cadastre-se</a>
+    </div>
+    <div class="container">
+        <div class="logo">Realizejá</div>
+        <h2>Fazer login</h2>
+        <form onsubmit="redirecionarParaHome(event)">
+            <input type="email" placeholder="E-mail" required>
+            <input type="password" placeholder="Senha" required>
+            <button type="submit" class="btn-primary">Entrar</button>
+        </form>
+        <a href="senha.html" class="forgot-password">Esqueceu a senha?</a>
+        <div class="signup">
+            Ainda não tem uma conta? <a href="criar_conta.html">Cadastre-se</a>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        © 2024 <span>Realizejá</span> - Todos os direitos reservados
+    </div>
+
+    <script>
+        // Redireciona para home.html ao fazer login
+        function redirecionarParaHome(event) {
+            event.preventDefault(); // Impede o envio do formulário
+            window.location.href = "home.html"; // Redireciona para a página inicial
+        }
+    </script>
+</body>
+</html>
