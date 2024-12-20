@@ -11,6 +11,11 @@
     display: table;
 }
 
+[class*="col-"] {
+    float: center;
+    padding: 15px;
+}
+
 /* Para celulares: */
 
 [class*="col-"] {
@@ -19,9 +24,6 @@
 
 @media only screen and (min-width: 600px) {
     /* Para tablets: */
-    [class*="col-"] {
-        padding: 10px; /* Reduz o padding */
-    }
     .col-s-1 {
         width: 8.33%;
     }
