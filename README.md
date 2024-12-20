@@ -8,7 +8,11 @@
 ----------------------------------------------------
 
 ## Sistema Proposto
-    O sistema proposta para atividade consiste em uma aplicação web onde usuários podem realizar cadastro para publicar tarefas e também realizá-las, assim existe um usuário com duas funcionalidades diferentes: pessoas ques precisas de ter suas tarefas realizadas e profissionais capacitados para realizar as tarefas publicadas. O sistema permite a criação, exclusão e visualização das tarefas. Não ocorre meio de transação/pagamento dentro do sistema, isso deve ocorrer particularmente entre os usuários após a finalização da tarefa pessoalmente.
+    O sistema proposta para atividade consiste em uma aplicação web onde usuários podem realizar cadastro para
+    publicar tarefas e também realizá-las, assim existe um usuário com duas funcionalidades diferentes: pessoas
+    ques precisas de ter suas tarefas realizadas e profissionais capacitados para realizar as tarefas publicadas.
+    O sistema permite a criação, exclusão e visualização das tarefas. Não ocorre meio de transação/pagamento dentro
+    do sistema, isso deve ocorrer particularmente entre os usuários após a finalização da tarefa pessoalmente.
 
 ## Requisitos:
 
