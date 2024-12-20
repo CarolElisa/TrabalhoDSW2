@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realizejá - Login</title>
+    <link rel="stylesheet" href="/PrimeiraFase/DSW2/css/login.css">
+    <link rel="stylesheet" href="/PrimeiraFase/DSW2/css/loginResponsigo.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header col-12">
+        <div class="logo">
+            <img src="/PrimeiraFase/DSW2/img/logo.png" alt="Logo Realizejá">
+            Conectando profissionais e tarefas pendentes
+        </div>
+        <div>
+            <a href="/PrimeiraFase/DSW2/html/criar_conta.html" class="cta">Cadastre-se</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="logo">Realizejá</div>
+        <h2>Fazer login</h2>
+        <form onsubmit="redirecionarParaHome(event)">
+            <input type="email" placeholder="E-mail" required>
+            <input type="password" placeholder="Senha" required>
+            <button type="submit" class="btn-primary">Entrar</button>
+        </form>
+        <a href="/PrimeiraFase/DSW2/html/senha.html" class="forgot-password">Esqueceu a senha?</a>
+        <div class="signup">
+            Ainda não tem uma conta? <a href="/PrimeiraFase/DSW2/html/criar_conta.html">Cadastre-se</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer col-12">
+        © 2024 <span>Realizejá</span> - Todos os direitos reservados
+    </div>
+
+    <script>
+        // Redireciona para home.html ao fazer login
+        function redirecionarParaHome(event) {
+            event.preventDefault(); // Impede o envio do formulário
+            window.location.href = "/PrimeiraFase/DSW2/html/home.html"; // Redireciona para a página inicial
+        }
+    </script>
+</body>
+</html>
