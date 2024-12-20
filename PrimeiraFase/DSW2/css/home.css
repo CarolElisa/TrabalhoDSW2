@@ -112,7 +112,7 @@ body {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: center;
-    white-space: nowrap; /* Evita quebra de texto em células */
+    word-wrap: break-word; /* Permite quebra de palavras longas */
 }
 
 .service-table th {
