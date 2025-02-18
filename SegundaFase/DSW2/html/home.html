@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealizeJá - Dashboard</title>
+    <link rel="stylesheet" href="/PrimeiraFase/DSW2/css/home.css">
+    <link rel="stylesheet" href="/PrimeiraFase/DSW2/css/homeResponsivo.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header col-12 col-s-12">
+        <div class="logo">
+            <img src="/PrimeiraFase/DSW2/img/logo.png" alt="Logo RealizeJá">
+            RealizeJá - Dashboard
+        </div>
+        <div class="user-actions">
+            <a href="/PrimeiraFase/DSW2/html/meus_dados.html">Meus Dados</a>
+            <a href="/PrimeiraFase/DSW2/html/index.html">Sair</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-container col-12 col-s-12">
+        <h1>Bem-vindo(a), [Nome do Usuário]!</h1>
+
+        <!-- Alternar entre contratante e prestador -->
+        <div class="toggle-role">
+            <button class="active" onclick="toggleRole('contratante')">Sou Contratante</button>
+            <button onclick="toggleRole('prestador')">Sou Prestador de Serviços</button>
+        </div>
+
+        <!-- Serviços -->
+        <div id="contratante-section" class="service-section">
+            <h2>Serviços Solicitados</h2>
+            <table class="service-table">
+                <thead>
+                    <tr>
+                        <th>Serviço</th>
+                        <th>Descrição</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Conserto de Ar Condicionado</td>
+                        <td>Preciso de um técnico para conserto.</td>
+                        <td>Pendente</td>
+                        <td>
+                            <button class="action-btn" onclick="window.location.href='/PrimeiraFase/DSW2/html/editar_servico.html?id_servico=123'">Editar</button>
+                            <button class="action-btn">Excluir</button>
+                        </td>
+                    </tr>
+                    <!-- Mais serviços aqui -->
+                </tbody>
+            </table>
+            <button class="action-btn" style="margin-top: 10px;" onclick="window.location.href='/PrimeiraFase/DSW2/html/criar_servico.html?tipo=solicitacao'">Criar Nova Solicitação</button>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h2>Prestadores de Serviços Disponíveis</h2>
+            <table class="service-table">
+                <thead>
+                    <tr>
+                        <th>Serviço</th>
+                        <th>Descrição</th>
+                        <th>Categoria</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Casa</td>
+                        <td>Serviços de Faxina.</td>
+                        <td>Limpeza</td>
+                        <td>
+                            <button class="action-btn" onclick="window.location.href='//wa.me/?35997463405'">Contratar</button>
+                        </td>
+                    </tr>
+                    <!-- Mais serviços aqui -->
+                </tbody>
+            </table></div>
+
+        <div id="prestador-section" class="service-section" style="display: none;">
+            <h2>Serviços Oferecidos</h2>
+            <table class="service-table">
+                <thead>
+                    <tr>
+                        <th>Serviço</th>
+                        <th>Descrição</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Casa</td>
+                        <td>Serviços de Faxina.</td>
+                        <td>Desativado</td>
+                        <td>
+                            <button class="action-btn" onclick="window.location.href='/PrimeiraFase/DSW2/html/editar_servico.html?id_servico=123'">Editar</button>
+                            <button class="action-btn">Excluir</button>
+                        </td>
+                    </tr>
+                    <!-- Mais serviços aqui -->
+                </tbody>
+            </table>
+            <button class="action-btn" style="margin-top: 10px;" onclick="window.location.href='/PrimeiraFase/DSW2/html/criar_servico.html?tipo=oferta'">Criar Nova Oferta</button>
+            <h1></h1>
+            <h1></h1>
+            <h1></h1>
+            <h2>Serviços Disponíveis</h2>
+            <table class="service-table">
+                <thead>
+                    <tr>
+                        <th>Serviço</th>
+                        <th>Descrição</th>
+                        <th>Categoria</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Conserto de Ar Condicionado</td>
+                        <td>Preciso de um técnico para conserto.</td>
+                        <td>Manutenção</td>
+                        <td>
+                            <button class="action-btn" onclick="window.location.href='//wa.me/?35997463405'">Enviar Orçamento</button>
+                        </td>
+                    </tr>
+                    <!-- Mais serviços aqui -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer col-12 col-s-12">
+        © 2024 <span>RealizeJá</span> - Todos os direitos reservados
+    </div>
+
+    <script>
+        function toggleRole(role) {
+            const contratanteSection = document.getElementById('contratante-section');
+            const prestadorSection = document.getElementById('prestador-section');
+            const buttons = document.querySelectorAll('.toggle-role button');
+
+            if (role === 'contratante') {
+                contratanteSection.style.display = 'block';
+                prestadorSection.style.display = 'none';
+                buttons[0].classList.add('active');
+                buttons[1].classList.remove('active');
+            } else {
+                contratanteSection.style.display = 'none';
+                prestadorSection.style.display = 'block';
+                buttons[0].classList.remove('active');
+                buttons[1].classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>

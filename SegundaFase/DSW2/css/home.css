@@ -1,0 +1,157 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    min-width: fit-content;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1c3d5a;
+    color: #ffffff;
+    padding: 10px 20px;
+    width: 100%;
+    margin: 0;
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.header .logo img {
+    height: 60px;
+    margin-right: 40px;
+}
+
+.header .user-actions a {
+    text-decoration: none;
+    color: #ffffff;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.header .user-actions a:hover {
+    text-decoration: underline;
+}
+
+/* Container principal */
+.main-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.main-container h1 {
+    font-size: 1.8rem;
+    color: #1c3d5a;
+    margin-bottom: 20px;
+}
+
+.toggle-role {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.toggle-role button {
+    background-color: #ff7c1f;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    width: 48%;
+}
+
+.toggle-role button.active {
+    background-color: #e56b1a;
+}
+
+.toggle-role button:hover {
+    background-color: #e56b1a;
+}
+
+/* Tabelas de serviços */
+.service-section {
+    margin-bottom: 20px;
+}
+
+.service-section h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.service-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow-x: auto; /* Adiciona rolagem horizontal caso o conteúdo ultrapasse os limites */
+    table-layout: auto; /* Permite que as colunas ajustem automaticamente */
+    margin-top: 10px;
+}
+
+.service-table th, .service-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    word-wrap: break-word; /* Permite quebra de palavras longas */
+}
+
+.service-table th {
+    background-color: #1c3d5a;
+    color: #ffffff;
+}
+
+.service-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.service-table tr:hover {
+    background-color: #ddd;
+}
+
+.action-btn {
+    background-color: #1c3d5a;
+    color: #ffffff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.action-btn:hover {
+    background-color: #16334a;
+}
+
+/* Footer */
+.footer {
+    background-color: #1c3d5a;
+    color: #fff;
+    text-align: center;
+    margin-top: auto; /* Garante que o footer sempre fique na base */
+    padding: 10px 20px;
+    width: 100%;
+}
+
+.footer span {
+    color: #ff7c1f;
+    font-weight: bold;
+}

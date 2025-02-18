@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealizeJá - Editar Serviço</title>
+    <link rel="stylesheet" href="/PrimeiraFase/DSW2/css/editar_servico.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Editar Serviço</h1>
+        <form>
+            <input type="hidden" id="id_servico" name="id_servico" value="[ID do Serviço]">
+
+            <label for="tipo">Tipo de Serviço</label>
+            <select id="tipo" name="tipo" required>
+                <option value="oferta" selected>[Tipo Atual]</option>
+                <option value="solicitacao">Solicitação de Serviço</option>
+                <option value="oferta">Oferta de Serviço</option>
+            </select>
+
+            <label for="nome">Nome do Serviço</label>
+            <input type="text" id="nome" name="nome" value="[Nome Atual do Serviço]" required>
+
+            <label for="descricao">Descrição</label>
+            <textarea id="descricao" name="descricao" rows="5" required>[Descrição Atual]</textarea>
+
+            <label for="categoria">Categoria</label>
+            <select id="categoria" name="categoria" required>
+                <option value="tecnologia" selected>[Categoria Atual]</option>
+                <option value="construcao">Construção</option>
+                <option value="limpeza">Limpeza</option>
+                <option value="saude">Saúde</option>
+                <option value="outros">Outros</option>
+            </select>
+
+            <label for="preco">Preço (opcional)</label>
+            <input type="text" id="preco" name="preco" value="[Preço Atual]">
+
+            <button type="button" onclick="window.location.href='/PrimeiraFase/DSW2/html/home.html'">Salvar Alterações</button>
+            <button type="button" onclick="window.location.href='/PrimeiraFase/DSW2/html/home.html'">Voltar</button>
+        </form>
+    </div>
+</body>
+</html>
