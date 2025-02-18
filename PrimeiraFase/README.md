@@ -1,5 +1,4 @@
-# Primeira etapa do trabalho
-
+# Primeira Etapa do Trabalho de DSW2
 
 ## Requisitos:
 
