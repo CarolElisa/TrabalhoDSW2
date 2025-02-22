@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealizeJá - Editar Serviço</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-blue-900 m-0 p-0">
+    <div class="container max-w-lg mx-auto my-8 bg-white p-5 shadow-lg rounded-lg">
+        <h1 class="text-blue-900 text-center text-2xl mb-5">Editar Serviço</h1>
+        <form class="flex flex-col">
+            <input type="hidden" id="id_servico" name="id_servico" value="[ID do Serviço]">
+
+            <label for="tipo" class="font-bold mb-1">Tipo de Serviço</label>
+            <select id="tipo" name="tipo" required class="p-2 border border-gray-300 rounded-md mb-4">
+                <option value="oferta" selected>Tipo Atual</option>
+                <option value="solicitacao">Solicitação de Serviço</option>
+                <option value="oferta">Oferta de Serviço</option>
+            </select>
+
+            <label for="nome" class="font-bold mb-1">Nome do Serviço</label>
+            <input type="text" id="nome" name="nome" placeholder="Nome Atual do Serviço" required class="p-2 border border-gray-300 rounded-md mb-4">
+
+            <label for="descricao" class="font-bold mb-1">Descrição</label>
+            <textarea id="descricao" name="descricao" rows="5" required class="p-2 border border-gray-300 rounded-md mb-4" placeholder="Descrição Atual"></textarea>
+
+            <label for="categoria" class="font-bold mb-1">Categoria</label>
+            <select id="categoria" name="categoria" required class="p-2 border border-gray-300 rounded-md mb-4">
+                <option value="tecnologia" selected>Categoria Atual</option>
+                <option value="construcao">Construção</option>
+                <option value="limpeza">Limpeza</option>
+                <option value="saude">Saúde</option>
+                <option value="outros">Outros</option>
+            </select>
+
+            <label for="preco" class="font-bold mb-1">Preço (opcional)</label>
+            <input type="text" id="preco" name="preco" placeholder="[Preço Atual]" class="p-2 border border-gray-300 rounded-md mb-4">
+
+            <div class="flex justify-between">
+                <button type="button" onclick="window.location.href='../html/home.html'" class="bg-orange-500 text-white font-bold p-2 rounded-md hover:bg-orange-600">Salvar Alterações</button>
+                <button type="button" onclick="window.location.href='../html/home.html'" class="bg-orange-500 text-white font-bold p-2 rounded-md hover:bg-orange-600">Voltar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
