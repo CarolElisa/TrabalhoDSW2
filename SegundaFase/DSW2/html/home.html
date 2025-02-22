@@ -4,140 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RealizeJá - Dashboard</title>
-    <link rel="stylesheet" href="/PrimeiraFase/DSW2/css/home.css">
-    <link rel="stylesheet" href="/PrimeiraFase/DSW2/css/homeResponsivo.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="bg-gray-100 min-w-fit">
     <!-- Header -->
-    <div class="header col-12 col-s-12">
-        <div class="logo">
-            <img src="/PrimeiraFase/DSW2/img/logo.png" alt="Logo RealizeJá">
+    <div class="header flex justify-between items-center bg-blue-900 text-white p-4 w-full">
+        <div class="logo flex items-center font-bold text-lg">
+            <img src="../img/logo.png" alt="Logo RealizeJá" class="h-16 mr-10">
             RealizeJá - Dashboard
         </div>
         <div class="user-actions">
-            <a href="/PrimeiraFase/DSW2/html/meus_dados.html">Meus Dados</a>
-            <a href="/PrimeiraFase/DSW2/html/index.html">Sair</a>
+            <a href="../html/meus_dados.html" class="text-white ml-5 font-bold hover:underline">Meus Dados</a>
+            <a href="../html/index.html" class="text-white ml-5 font-bold hover:underline">Sair</a>
         </div>
     </div>
 
     <!-- Main Content -->
-    <div class="main-container col-12 col-s-12">
-        <h1>Bem-vindo(a), [Nome do Usuário]!</h1>
+    <div class="main-container w-full max-w-5xl mx-auto my-20 p-5 bg-white shadow-lg rounded-lg">
+        <h1 class="text-3xl text-blue-900 mb-5">Bem-vindo(a), [Nome do Usuário]!</h1>
 
         <!-- Alternar entre contratante e prestador -->
-        <div class="toggle-role">
-            <button class="active" onclick="toggleRole('contratante')">Sou Contratante</button>
-            <button onclick="toggleRole('prestador')">Sou Prestador de Serviços</button>
+        <div class="toggle-role flex justify-between mb-5">
+            <button class="bg-orange-500 text-white border-none p-3 rounded-md text-lg font-bold w-1/2 mr-2 active:bg-orange-600 hover:bg-orange-600" onclick="toggleRole('contratante')">Sou Contratante</button>
+            <button class="bg-orange-500 text-white border-none p-3 rounded-md text-lg font-bold w-1/2 ml-2 hover:bg-orange-600" onclick="toggleRole('prestador')">Sou Prestador de Serviços</button>
         </div>
 
         <!-- Serviços -->
-        <div id="contratante-section" class="service-section">
-            <h2>Serviços Solicitados</h2>
-            <table class="service-table">
+        <div id="contratante-section" class="service-section mb-5">
+            <h2 class="text-2xl text-gray-800 mb-3">Serviços Solicitados</h2>
+            <table class="service-table w-full border-collapse overflow-x-auto table-auto mt-2">
                 <thead>
                     <tr>
-                        <th>Serviço</th>
-                        <th>Descrição</th>
-                        <th>Status</th>
-                        <th>Ações</th>
+                        <th class="bg-blue-900 text-white p-2 text-center">Serviço</th>
+                        <th class="bg-blue-900 text-white p-2 text-center">Descrição</th>
+                        <th class="bg-blue-900 text-white p-2 text-center">Status</th>
+                        <th class="bg-blue-900 text-white p-2 text-center">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Conserto de Ar Condicionado</td>
-                        <td>Preciso de um técnico para conserto.</td>
-                        <td>Pendente</td>
-                        <td>
-                            <button class="action-btn" onclick="window.location.href='/PrimeiraFase/DSW2/html/editar_servico.html?id_servico=123'">Editar</button>
-                            <button class="action-btn">Excluir</button>
+                    <tr class="even:bg-gray-200 hover:bg-gray-300">
+                        <td class="border p-2 text-center">Conserto de Ar Condicionado</td>
+                        <td class="border p-2 text-center">Preciso de um técnico para conserto.</td>
+                        <td class="border p-2 text-center">Pendente</td>
+                        <td class="border p-2 text-center">
+                            <button class="action-btn bg-blue-900 text-white p-2 rounded-md hover:bg-blue-800" onclick="window.location.href='../html/editar_servico.html?id_servico=123'">Editar</button>
+                            <button class="action-btn bg-blue-900 text-white p-2 rounded-md hover:bg-blue-800">Excluir</button>
                         </td>
                     </tr>
                     <!-- Mais serviços aqui -->
                 </tbody>
             </table>
-            <button class="action-btn" style="margin-top: 10px;" onclick="window.location.href='/PrimeiraFase/DSW2/html/criar_servico.html?tipo=solicitacao'">Criar Nova Solicitação</button>
-            <h1></h1>
-            <h1></h1>
-            <h1></h1>
-            <h2>Prestadores de Serviços Disponíveis</h2>
-            <table class="service-table">
-                <thead>
-                    <tr>
-                        <th>Serviço</th>
-                        <th>Descrição</th>
-                        <th>Categoria</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Casa</td>
-                        <td>Serviços de Faxina.</td>
-                        <td>Limpeza</td>
-                        <td>
-                            <button class="action-btn" onclick="window.location.href='//wa.me/?35997463405'">Contratar</button>
-                        </td>
-                    </tr>
-                    <!-- Mais serviços aqui -->
-                </tbody>
-            </table></div>
+            <button class="action-btn bg-blue-900 text-white p-2 rounded-md mt-2 hover:bg-blue-800" onclick="window.location.href='../html/criar_servico.html?tipo=solicitacao'">Criar Nova Solicitação</button>
+        </div>
 
-        <div id="prestador-section" class="service-section" style="display: none;">
-            <h2>Serviços Oferecidos</h2>
-            <table class="service-table">
+        <div id="prestador-section" class="service-section mb-5 hidden">
+            <h2 class="text-2xl text-gray-800 mb-3">Serviços Oferecidos</h2>
+            <table class="service-table w-full border-collapse overflow-x-auto table-auto mt-2">
                 <thead>
                     <tr>
-                        <th>Serviço</th>
-                        <th>Descrição</th>
-                        <th>Status</th>
-                        <th>Ações</th>
+                        <th class="bg-blue-900 text-white p-2 text-center">Serviço</th>
+                        <th class="bg-blue-900 text-white p-2 text-center">Descrição</th>
+                        <th class="bg-blue-900 text-white p-2 text-center">Status</th>
+                        <th class="bg-blue-900 text-white p-2 text-center">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Casa</td>
-                        <td>Serviços de Faxina.</td>
-                        <td>Desativado</td>
-                        <td>
-                            <button class="action-btn" onclick="window.location.href='/PrimeiraFase/DSW2/html/editar_servico.html?id_servico=123'">Editar</button>
-                            <button class="action-btn">Excluir</button>
+                    <tr class="even:bg-gray-200 hover:bg-gray-300">
+                        <td class="border p-2 text-center">Casa</td>
+                        <td class="border p-2 text-center">Serviços de Faxina.</td>
+                        <td class="border p-2 text-center">Desativado</td>
+                        <td class="border p-2 text-center">
+                            <button class="action-btn bg-blue-900 text-white p-2 rounded-md hover:bg-blue-800" onclick="window.location.href='../html/editar_servico.html?id_servico=123'">Editar</button>
+                            <button class="action-btn bg-blue-900 text-white p-2 rounded-md hover:bg-blue-800">Excluir</button>
                         </td>
                     </tr>
                     <!-- Mais serviços aqui -->
                 </tbody>
             </table>
-            <button class="action-btn" style="margin-top: 10px;" onclick="window.location.href='/PrimeiraFase/DSW2/html/criar_servico.html?tipo=oferta'">Criar Nova Oferta</button>
-            <h1></h1>
-            <h1></h1>
-            <h1></h1>
-            <h2>Serviços Disponíveis</h2>
-            <table class="service-table">
-                <thead>
-                    <tr>
-                        <th>Serviço</th>
-                        <th>Descrição</th>
-                        <th>Categoria</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Conserto de Ar Condicionado</td>
-                        <td>Preciso de um técnico para conserto.</td>
-                        <td>Manutenção</td>
-                        <td>
-                            <button class="action-btn" onclick="window.location.href='//wa.me/?35997463405'">Enviar Orçamento</button>
-                        </td>
-                    </tr>
-                    <!-- Mais serviços aqui -->
-                </tbody>
-            </table>
+            <button class="action-btn bg-blue-900 text-white p-2 rounded-md mt-2 hover:bg-blue-800" onclick="window.location.href='../html/criar_servico.html?tipo=oferta'">Criar Nova Oferta</button>
         </div>
     </div>
 
     <!-- Footer -->
-    <div class="footer col-12 col-s-12">
-        © 2024 <span>RealizeJá</span> - Todos os direitos reservados
+    <div class="footer bg-blue-900 text-white text-center p-4 w-full">
+        © 2024 <span class="text-orange-500 font-bold">RealizeJá</span> - Todos os direitos reservados
     </div>
 
     <script>
@@ -149,15 +99,16 @@
             if (role === 'contratante') {
                 contratanteSection.style.display = 'block';
                 prestadorSection.style.display = 'none';
-                buttons[0].classList.add('active');
-                buttons[1].classList.remove('active');
+                buttons[0].classList.add('bg-orange-600');
+                buttons[1].classList.remove('bg-orange-600');
             } else {
                 contratanteSection.style.display = 'none';
                 prestadorSection.style.display = 'block';
-                buttons[0].classList.remove('active');
-                buttons[1].classList.add('active');
+                buttons[0].classList.remove('bg-orange-600');
+                buttons[1].classList.add('bg-orange-600');
             }
         }
     </script>
 </body>
 </html>
+
