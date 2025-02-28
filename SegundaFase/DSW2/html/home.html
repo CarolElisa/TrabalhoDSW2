@@ -41,7 +41,7 @@
                 </thead>
                 <tbody></tbody>
             </table>
-            <button class="action-btn bg-blue-900 text-white p-2 rounded-md mt-2 hover:bg-blue-800" onclick="window.location.href='criar_servico.html?tipo=solicitacao&userId=${userId}'">Criar Nova Solicitação</button>
+            <button id="btn-criar-solicitacao" class="action-btn bg-blue-900 text-white p-2 rounded-md mt-2 hover:bg-blue-800">Criar Nova Solicitação</button>
         </div>
 
         <div id="prestador-section" class="service-section mb-5 hidden">
@@ -58,12 +58,27 @@
                 </thead>
                 <tbody></tbody>
             </table>
-            <button class="action-btn bg-blue-900 text-white p-2 rounded-md mt-2 hover:bg-blue-800" onclick="window.location.href='criar_servico.html?tipo=oferta&userId=${userId}'">Criar Nova Oferta</button>
+            <button id="btn-criar-oferta" class="action-btn bg-blue-900 text-white p-2 rounded-md mt-2 hover:bg-blue-800">Criar Nova Oferta</button>
         </div>
     </div>
 
     <div class="footer bg-blue-900 text-white text-center p-4 w-full">
         © 2024 <span class="text-orange-500 font-bold">RealizeJá</span> - Todos os direitos reservados
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const userId = urlParams.get('id');
+            
+            document.getElementById('btn-criar-solicitacao').addEventListener('click', () => {
+                window.location.href = `criar_servico.html?tipo=solicitacao&userId=${userId}`;
+            });
+            
+            document.getElementById('btn-criar-oferta').addEventListener('click', () => {
+                window.location.href = `criar_servico.html?tipo=oferta&userId=${userId}`;
+            });
+        });
+    </script>
 </body>
 </html>

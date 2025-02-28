@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   const formServico = document.getElementById('servico-form');
+
+  let usuario; // Armazena os dados do usuário logado
+  let tarefas; // Armazena as tarefas do JSON Server
+
   const urlParams = new URLSearchParams(window.location.search);
   const tipo = urlParams.get('tipo'); // Obtém o tipo de serviço (oferta ou solicitação)
   const userId = urlParams.get('userId'); // Obtém o ID do usuário

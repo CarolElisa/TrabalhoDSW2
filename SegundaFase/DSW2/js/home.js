@@ -1,136 +1,136 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const userInfo = document.querySelector('h1'); // Elemento que exibe o nome do usuário
-    const contratanteSection = document.getElementById('contratante-section');
-    const prestadorSection = document.getElementById('prestador-section');
-    const btnContratante = document.getElementById('btn-contratante');
-    const btnPrestador = document.getElementById('btn-prestador');
-    const contratanteTableBody = contratanteSection.querySelector('tbody');
-    const prestadorTableBody = prestadorSection.querySelector('tbody');
-  
-    let usuario; // Armazena os dados do usuário logado
-    let tarefas; // Armazena as tarefas do JSON Server
-  
-    // Obtém o ID do usuário da URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const userId = urlParams.get('id');
-  
-    // Função para buscar informações do usuário
-    async function buscarUsuario(id) {
-      try {
-        const response = await fetch(`http://localhost:3000/usuarios/${id}`);
-        usuario = await response.json();
-        if (usuario) {
-          userInfo.textContent = `Bem-vindo(a), ${usuario.nome}!`;
-          carregarTarefas();
-        } else {
-          alert('Usuário não encontrado.');
-          window.location.href = 'login.html';
+      const userInfo = document.querySelector('h1');
+      const contratanteSection = document.getElementById('contratante-section');
+      const prestadorSection = document.getElementById('prestador-section');
+      const btnContratante = document.getElementById('btn-contratante');
+      const btnPrestador = document.getElementById('btn-prestador');
+      const btnCriarSolicitacao = document.getElementById('btn-criar-solicitacao');
+      const btnCriarOferta = document.getElementById('btn-criar-oferta');
+      const contratanteTableBody = contratanteSection.querySelector('tbody');
+      const prestadorTableBody = prestadorSection.querySelector('tbody');
+      
+      let usuario; // Armazena os dados do usuário logado
+      let tarefas; // Armazena as tarefas do JSON Server
+    
+      const urlParams = new URLSearchParams(window.location.search);
+      const userId = urlParams.get('id');
+    
+      async function buscarUsuario(id) {
+        try {
+          const response = await fetch(`http://localhost:3000/usuarios/${id}`);
+          usuario = await response.json();
+          if (usuario) {
+            userInfo.textContent = `Bem-vindo(a), ${usuario.nome}!`;
+            carregarTarefas();
+          } else {
+            alert('Usuário não encontrado.');
+            window.location.href = 'login.html';
+          }
+        } catch (error) {
+          console.error('Erro ao buscar usuário:', error);
+          alert('Erro ao carregar informações do usuário.');
         }
-      } catch (error) {
-        console.error('Erro ao buscar usuário:', error);
-        alert('Erro ao carregar informações do usuário.');
       }
-    }
-  
-    // Função para buscar tarefas do JSON Server
-    async function carregarTarefas() {
-      try {
-        const response = await fetch('http://localhost:3000/tarefas');
-        tarefas = await response.json();
+    
+      async function carregarTarefas() {
+        try {
+          const response = await fetch('http://localhost:3000/tarefas');
+          tarefas = await response.json();
+          exibirTarefasContratante();
+        } catch (error) {
+          console.error('Erro ao buscar tarefas:', error);
+          alert('Erro ao carregar tarefas.');
+        }
+      }
+    
+      function exibirTarefasContratante() {
+        contratanteTableBody.innerHTML = tarefas
+          .filter((tarefa) => tarefa.tipo === 'Solicitação de Serviço')
+          .map(
+            (tarefa) => `
+              <tr>
+                <td class="p-2 border text-center">${tarefa.nome}</td>
+                <td class="p-2 border text-center">${tarefa.descricao}</td>
+                <td class="p-2 border text-center">${tarefa.distancia || 'N/A'}</td>
+                <td class="p-2 border text-center">${tarefa.status || 'Pendente'}</td>
+                <td class="p-2 border text-center">
+                  <button class="bg-blue-900 text-white p-1 rounded hover:bg-blue-800" onclick="editarTarefa(${tarefa.id})">Editar</button>
+                </td>
+              </tr>
+            `
+          )
+          .join('');
+      }
+    
+      function exibirTarefasPrestador() {
+        prestadorTableBody.innerHTML = tarefas
+          .filter((tarefa) => tarefa.tipo === 'Oferta de Serviço')
+          .map(
+            (tarefa) => `
+              <tr>
+                <td class="p-2 border text-center">${tarefa.nome}</td>
+                <td class="p-2 border text-center">${tarefa.descricao}</td>
+                <td class="p-2 border text-center">${tarefa.distancia || 'N/A'}</td>
+                <td class="p-2 border text-center">${tarefa.status || 'Pendente'}</td>
+                <td class="p-2 border text-center">
+                  <button class="bg-blue-900 text-white p-1 rounded hover:bg-blue-800" onclick="editarTarefa(${tarefa.id})">Editar</button>
+                  <button class="bg-red-500 text-white p-1 rounded hover:bg-red-600" onclick="excluirTarefa(${tarefa.id})">Excluir</button>
+                </td>
+              </tr>
+            `
+          )
+          .join('');
+      }
+    
+      window.editarTarefa = (tarefaId) => {
+        window.location.href = `editar_servico.html?tipo=editar&id=${tarefaId}&userId=${userId}`;
+      };
+    
+      window.excluirTarefa = async (tarefaId) => {
+        try {
+          const response = await fetch(`http://localhost:3000/tarefas/${tarefaId}`, {
+            method: 'DELETE',
+          });
+          if (response.ok) {
+            alert('Tarefa excluída com sucesso!');
+            carregarTarefas();
+          } else {
+            throw new Error('Erro ao excluir tarefa');
+          }
+        } catch (error) {
+          console.error('Erro ao excluir tarefa:', error);
+          alert('Erro ao excluir tarefa.');
+        }
+      };
+    
+      btnContratante.addEventListener('click', () => {
+        contratanteSection.classList.remove('hidden');
+        prestadorSection.classList.add('hidden');
         exibirTarefasContratante();
-      } catch (error) {
-        console.error('Erro ao buscar tarefas:', error);
-        alert('Erro ao carregar tarefas.');
+      });
+    
+      btnPrestador.addEventListener('click', () => {
+        prestadorSection.classList.remove('hidden');
+        contratanteSection.classList.add('hidden');
+        exibirTarefasPrestador();
+      });
+    
+      btnCriarSolicitacao.addEventListener('click', () => {
+        window.location.href = `criar_servico.html?tipo=solicitacao&userId=${userId}`;
+      });
+    
+      btnCriarOferta.addEventListener('click', () => {
+        window.location.href = `criar_servico.html?tipo=oferta&userId=${userId}`;
+      });
+    
+      if (userId) {
+        buscarUsuario(userId);
+      } else {
+        alert('ID do usuário não fornecido.');
+        window.location.href = 'login.html';
       }
-    }
-  
-    // Função para exibir tarefas como contratante
-    function exibirTarefasContratante() {
-      contratanteTableBody.innerHTML = tarefas
-        .filter((tarefa) => tarefa.tipo === 'Solicitação de Serviço')
-        .map(
-          (tarefa) => `
-            <tr>
-              <td class="p-2 border text-center">${tarefa.nome}</td>
-              <td class="p-2 border text-center">${tarefa.descricao}</td>
-              <td class="p-2 border text-center">${tarefa.distancia || 'N/A'}</td>
-              <td class="p-2 border text-center">${tarefa.status || 'Pendente'}</td>
-              <td class="p-2 border text-center">
-                <button class="bg-blue-900 text-white p-1 rounded hover:bg-blue-800" onclick="editarTarefa(${tarefa.id})">Editar</button>
-                <button class="bg-red-500 text-white p-1 rounded hover:bg-red-600" onclick="excluirTarefa(${tarefa.id})">Excluir</button>
-              </td>
-            </tr>
-          `
-        )
-        .join('');
-    }
-  
-    // Função para exibir tarefas como prestador
-    function exibirTarefasPrestador() {
-      prestadorTableBody.innerHTML = tarefas
-        .filter((tarefa) => tarefa.tipo === 'Oferta de Serviço')
-        .map(
-          (tarefa) => `
-            <tr>
-              <td class="p-2 border text-center">${tarefa.nome}</td>
-              <td class="p-2 border text-center">${tarefa.descricao}</td>
-              <td class="p-2 border text-center">${tarefa.distancia || 'N/A'}</td>
-              <td class="p-2 border text-center">${tarefa.status || 'Pendente'}</td>
-              <td class="p-2 border text-center">
-                <button class="bg-blue-900 text-white p-1 rounded hover:bg-blue-800" onclick="editarTarefa(${tarefa.id})">Editar</button>
-                <button class="bg-red-500 text-white p-1 rounded hover:bg-red-600" onclick="excluirTarefa(${tarefa.id})">Excluir</button>
-              </td>
-            </tr>
-          `
-        )
-        .join('');
-    }
-  
-    // Função para editar uma tarefa
-    window.editarTarefa = (tarefaId) => {
-      window.location.href = `criar_servico.html?tipo=editar&id=${tarefaId}&userId=${userId}`;
-    };
-  
-    // Função para excluir uma tarefa
-    window.excluirTarefa = async (tarefaId) => {
-      try {
-        const response = await fetch(`http://localhost:3000/tarefas/${tarefaId}`, {
-          method: 'DELETE',
-        });
-        if (response.ok) {
-          alert('Tarefa excluída com sucesso!');
-          carregarTarefas(); // Recarrega as tarefas após exclusão
-        } else {
-          throw new Error('Erro ao excluir tarefa');
-        }
-      } catch (error) {
-        console.error('Erro ao excluir tarefa:', error);
-        alert('Erro ao excluir tarefa.');
-      }
-    };
-  
-    // Evento para alternar para a visão de contratante
-    btnContratante.addEventListener('click', () => {
-      contratanteSection.classList.remove('hidden');
-      prestadorSection.classList.add('hidden');
-      exibirTarefasContratante();
-    });
-  
-    // Evento para alternar para a visão de prestador
-    btnPrestador.addEventListener('click', () => {
-      prestadorSection.classList.remove('hidden');
-      contratanteSection.classList.add('hidden');
-      exibirTarefasPrestador();
-    });
-  
-    // Inicialização
-    if (userId) {
-      buscarUsuario(userId);
-    } else {
-      alert('ID do usuário não fornecido.');
-      window.location.href = 'login.html';
-    }
   });
+  
 
 /* VERIFICAR DEPOIS
 
