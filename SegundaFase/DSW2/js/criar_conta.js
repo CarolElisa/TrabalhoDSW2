@@ -173,7 +173,7 @@ function redirecionarParaHome(event) {
         // });
 
         // Redireciona para a página inicial
-        window.location.href = "../html/home.html";
+        window.location.href = "home.html";
     });
 }
 
