@@ -59,68 +59,90 @@
       "num": "20",
       "cidade": "Passos",
       "uf": "MG"
+    },
+    {
+      "id": "d229",
+      "nome": "Daniel",
+      "email": "daniel@ufscar.br",
+      "tel": "35353535",
+      "senha": "123",
+      "cep": "13565090",
+      "logradouro": "Rua Ray Wesley Herrick",
+      "num": "153",
+      "cidade": "São Carlos",
+      "uf": "SP"
     }
   ],
   "tarefas": [
     {
-      "id": "102",
-      "tipo": "Oferta de Serviço",
+      "id": "1001",
+      "tipo": "oferta",
       "nome": "Manutenção de Computadores",
       "descricao": "Reparo de hardware e software para computadores e notebooks.",
       "categoria": "tecnologia",
       "preco": "250",
       "status": "Disponível",
-      "userId": "2"
+      "userId": "5c0f"
     },
     {
-      "id": "103",
-      "tipo": "Solicitação de Serviço",
+      "id": "1002",
+      "tipo": "oferta",
       "nome": "Reforma de Banheiro",
       "descricao": "Preciso de um pedreiro para reforma completa de um banheiro.",
       "categoria": "construcao",
       "preco": "5000",
-      "status": "Em andamento",
-      "userId": "3"
+      "status": "Disponível",
+      "userId": "5c0f"
     },
     {
-      "id": "104",
-      "tipo": "Oferta de Serviço",
+      "id": "1003",
+      "tipo": "oferta",
       "nome": "Limpeza de Apartamento",
       "descricao": "Serviço de faxina detalhada para apartamentos pequenos e médios.",
       "categoria": "limpeza",
       "preco": "180",
       "status": "Disponível",
-      "userId": "2"
+      "userId": "5c0f"
     },
     {
-      "id": "105",
-      "tipo": "Solicitação de Serviço",
+      "id": "1004",
+      "tipo": "solicitacao",
       "nome": "Consultoria em Marketing Digital",
       "descricao": "Preciso de ajuda para melhorar a presença digital da minha empresa.",
       "categoria": "tecnologia",
       "preco": "700",
-      "status": "Concluído",
-      "userId": "1"
+      "status": "Disponível",
+      "userId": "df92"
     },
     {
-      "id": "a92b",
+      "id": "1005",
       "tipo": "oferta",
       "nome": "dfbfdb",
       "descricao": "dfbfdbfdb",
       "categoria": "saude",
       "preco": "dfbdfbdfb",
-      "status": "Pendente",
-      "userId": "5c0f"
+      "status": "Disponível",
+      "userId": "df92"
     },
     {
-      "id": "5440",
+      "id": "1006",
       "tipo": "oferta",
       "nome": "Desenvolvimento de Sites",
       "descricao": "Desenvolvo seu site completo",
       "categoria": "tecnologia",
       "preco": "1900",
-      "status": "Pendente",
+      "status": "Disponível",
       "userId": "df92"
+    },
+    {
+      "id": "6331",
+      "tipo": "oferta",
+      "nome": "TESTE",
+      "descricao": "TESTE",
+      "categoria": "tecnologia",
+      "preco": "1000",
+      "status": "Pendente",
+      "userId": "d229"
     }
   ]
 }

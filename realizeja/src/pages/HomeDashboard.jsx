@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
-import Header from "../components/Header";
 
 export default function HomeDashboard() {
   const [user, setUser] = useState(null);
@@ -66,11 +65,22 @@ export default function HomeDashboard() {
 
   return (
     <div className="bg-gray-100 min-w-fit">
-      <Header>
-        <Link to="/meus-dados" className="text-white ml-6 font-bold hover:underline">
+      {/* Header */}
+      <div className="flex justify-between items-center bg-blue-900 text-white p-4 w-full">
+        <div className="flex items-center font-bold text-lg">
+          <img src="/img/logo.png" alt="Logo RealizeJá" className="h-16 mr-10" />
+          RealizeJá - Dashboard
+        </div>
+        <div className="flex">
+        <Link to={`/meus-dados?id=${user?.id}`} className="text-white ml-5 font-bold hover:underline"
+        >
           Meus Dados
         </Link>
-      </Header>
+          <Link to="/" className="text-white ml-5 font-bold hover:underline">
+            Sair
+          </Link>
+        </div>
+      </div>
 
       <div className="w-full max-w-5xl mx-auto my-10 p-5 bg-white shadow-lg rounded-lg">
         {user && <h1 className="text-3xl text-blue-900 mb-5">Bem-vindo(a), {user.nome}!</h1>}
@@ -96,7 +106,7 @@ export default function HomeDashboard() {
           <button
             onClick={() => setModoExibicao("meusServicos")}
             className={`p-3 rounded-md text-lg font-bold w-1/3 mx-1 ${
-              modoExibicao === "meusServicos" ? "bg-blue-600 text-white" : "bg-gray-300 text-gray-700"
+              modoExibicao === "meusServicos" ? "bg-orange-600 text-white" : "bg-gray-300 text-gray-700"
             }`}
           >
             Meus Serviços
@@ -146,11 +156,12 @@ export default function HomeDashboard() {
                       </>
                     ) : (
                       <Link
-                        to={`/detalhes-servico?id=${tarefa.id}`}
-                        className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
-                      >
-                        Ver Detalhes
-                      </Link>
+                      to={`/detalhes-servico?tarefaId=${tarefa.id}&userId=${tarefa.userId}`}
+                      className="bg-orange-500 text-white p-2 rounded hover:bg-orange-600"
+                    >
+                      Ver Detalhes
+                    </Link>
+
                     )}
                   </td>
                 </tr>
