@@ -116,11 +116,11 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     
       btnCriarSolicitacao.addEventListener('click', () => {
-        window.location.href = `criar_servico.html?tipo=solicitacao&userId=${userId}`;
+        window.location.href = `criar_servico.html?userId=${userId}`;
       });
     
       btnCriarOferta.addEventListener('click', () => {
-        window.location.href = `criar_servico.html?tipo=oferta&userId=${userId}`;
+        window.location.href = `criar_servico.html?userId=${userId}`;
       });
     
       if (userId) {
