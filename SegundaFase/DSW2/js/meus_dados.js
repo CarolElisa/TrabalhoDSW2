@@ -1,3 +1,123 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const formMeusDados = document.getElementById('form-meus-dados');
+  const btnVoltar = document.getElementById('btn-voltar');
+
+  // Obtém o ID do usuário da URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const userId = urlParams.get('id');
+
+  // Função para buscar os dados do usuário
+  async function buscarUsuario(id) {
+    try {
+      const response = await fetch(`http://localhost:3000/usuarios/${id}`);
+      const usuario = await response.json();
+      if (usuario) {
+        preencherFormulario(usuario);
+      } else {
+        alert('Usuário não encontrado.');
+        window.location.href = '../html/login.html';
+      }
+    } catch (error) {
+      console.error('Erro ao buscar usuário:', error);
+      alert('Erro ao carregar informações do usuário.');
+    }
+  }
+
+  // Função para preencher o formulário com os dados do usuário
+  function preencherFormulario(usuario) {
+    document.getElementById('nome').value = usuario.nome;
+    document.getElementById('email').value = usuario.email;
+    document.getElementById('celular').value = usuario.tel;
+    document.getElementById('cep').value = usuario.cep;
+    document.getElementById('rua').value = usuario.logradouro;
+    document.getElementById('numero').value = usuario.num;
+    document.getElementById('cidade').value = usuario.cidade;
+    document.getElementById('estado').value = usuario.uf;
+  }
+
+  // Função para buscar o endereço a partir do CEP
+  async function buscarEndereco(cep) {
+    try {
+      const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+      const data = await response.json();
+      if (data.erro) {
+        throw new Error('CEP não encontrado');
+      }
+      return data;
+    } catch (error) {
+      console.error('Erro ao buscar CEP:', error);
+      alert('CEP não encontrado. Por favor, verifique o CEP digitado.');
+      return null;
+    }
+  }
+
+  // Evento para buscar o endereço quando o CEP for preenchido
+  document.getElementById('cep').addEventListener('blur', async (event) => {
+    const cep = event.target.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+    if (cep.length === 8) {
+      const endereco = await buscarEndereco(cep);
+      if (endereco) {
+        document.getElementById('rua').value = endereco.logradouro;
+        document.getElementById('cidade').value = endereco.localidade;
+        document.getElementById('estado').value = endereco.uf;
+      }
+    }
+  });
+
+  // Evento para enviar o formulário de atualização
+  formMeusDados.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    // Coletar dados do formulário
+    const dadosAtualizados = {
+      email: document.getElementById('email').value,
+      tel: document.getElementById('celular').value,
+      senha: document.getElementById('senha').value || undefined, // Senha é opcional
+      cep: document.getElementById('cep').value,
+      logradouro: document.getElementById('rua').value,
+      num: document.getElementById('numero').value,
+      cidade: document.getElementById('cidade').value,
+      uf: document.getElementById('estado').value,
+    };
+
+    // Enviar dados atualizados para o JSON Server
+    try {
+      const response = await fetch(`http://localhost:3000/usuarios/${userId}`, {
+        method: 'PATCH', // Usamos PATCH para atualizar apenas os campos fornecidos
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dadosAtualizados),
+      });
+
+      if (response.ok) {
+        alert('Dados atualizados com sucesso!');
+        window.location.href = `../html/home.html?id=${userId}`; // Redireciona para a página home
+      } else {
+        throw new Error('Erro ao atualizar dados');
+      }
+    } catch (error) {
+      console.error('Erro ao atualizar dados:', error);
+      alert('Erro ao atualizar dados. Tente novamente.');
+    }
+  });
+
+  // Evento para voltar à página home
+  btnVoltar.addEventListener('click', () => {
+    window.location.href = `../html/home.html?id=${userId}`;
+  });
+
+  // Inicialização
+  if (userId) {
+    buscarUsuario(userId);
+  } else {
+    alert('ID do usuário não fornecido.');
+    window.location.href = '../html/login.html';
+  }
+});
+
+
+/*
 // Função para buscar endereço pelo CEP usando a API do ViaCEP
 function buscarEnderecoPorCEP() {
     const cep = document.getElementById('cep').value.replace(/\D/g, ''); // Remove caracteres não numéricos
@@ -61,3 +181,5 @@ document.getElementById('form-meus-dados').addEventListener('submit', redirecion
 document.getElementById('btn-voltar').addEventListener('click', () => {
     window.location.href = "../html/home.html";
 });
+
+*/

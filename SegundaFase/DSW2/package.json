@@ -1,18 +1,21 @@
 {
   "name": "dsw2",
   "version": "1.0.0",
-  "description": "",
   "main": "tailwind.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "parcel html/index.html",
+    "dev:json": "json-server db.json"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "description": "",
+  "dependencies": {
+    "@faker-js/faker": "^9.5.0",
+    "axios": "^1.8.1",
+    "json-server": "^1.0.0-beta.3"
+  },
   "devDependencies": {
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.5.3",
-    "tailwindcss": "^4.0.8"
+    "parcel": "^2.13.3"
   }
 }

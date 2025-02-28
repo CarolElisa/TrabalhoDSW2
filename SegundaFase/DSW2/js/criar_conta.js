@@ -1,3 +1,82 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const formCadastro = document.getElementById('form-cadastro');
+  
+    // Função para buscar o endereço a partir do CEP
+    async function buscarEndereco(cep) {
+      try {
+        const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const data = await response.json();
+        if (data.erro) {
+          throw new Error('CEP não encontrado');
+        }
+        return data;
+      } catch (error) {
+        console.error('Erro ao buscar CEP:', error);
+        alert('CEP não encontrado. Por favor, verifique o CEP digitado.');
+        return null;
+      }
+    }
+  
+    // Função para preencher os campos de endereço
+    async function preencherEndereco(cep) {
+      const endereco = await buscarEndereco(cep);
+      if (endereco) {
+        document.getElementById('rua').value = endereco.logradouro;
+        document.getElementById('cidade').value = endereco.localidade;
+        document.getElementById('estado').value = endereco.uf;
+      }
+    }
+  
+    // Evento para buscar o endereço quando o CEP for preenchido
+    document.getElementById('cep').addEventListener('blur', async (event) => {
+      const cep = event.target.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+      if (cep.length === 8) {
+        await preencherEndereco(cep);
+      }
+    });
+  
+    // Evento para enviar o formulário
+    formCadastro.addEventListener('submit', async (event) => {
+      event.preventDefault();
+  
+      // Coletar dados do formulário
+      const usuario = {
+        nome: formCadastro.querySelector('input[type="text"]').value,
+        email: formCadastro.querySelector('input[type="email"]').value,
+        tel: formCadastro.querySelector('input[type="tel"]').value,
+        senha: formCadastro.querySelector('input[type="password"]').value,
+        cep: document.getElementById('cep').value,
+        logradouro: document.getElementById('rua').value,
+        num: document.getElementById('numero').value,
+        cidade: document.getElementById('cidade').value,
+        uf: document.getElementById('estado').value,
+      };
+  
+      // Enviar dados para o JSON Server
+      try {
+        const response = await fetch('http://localhost:3000/usuarios', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(usuario),
+        });
+  
+        if (response.ok) {
+          alert('Cadastro realizado com sucesso!');
+          window.location.href = '../html/login.html'; // Redireciona para a página de login
+        } else {
+          throw new Error('Erro ao cadastrar usuário');
+        }
+      } catch (error) {
+        console.error('Erro ao enviar dados:', error);
+        alert('Erro ao cadastrar usuário. Tente novamente.');
+      }
+    });
+  });
+
+/* VERIFICAR DEPOIS SE REMOVE OU NÃO
+
 // Substitua pela sua chave de API do Mapbox
 const MAPBOX_API_KEY = 'pk.eyJ1IjoiZ3VpZGluaTEiLCJhIjoiY203Z2RxcjZ1MDcyeDJqcHlsYjR2aWo5MiJ9.oJhoRhRSuZGFilAXan8sXw';
 
@@ -102,4 +181,4 @@ function redirecionarParaHome(event) {
 document.getElementById('cep').addEventListener('blur', buscarEnderecoPorCEP);
 
 // Adiciona um evento para o envio do formulário
-document.getElementById('form-cadastro').addEventListener('submit', redirecionarParaHome);
+document.getElementById('form-cadastro').addEventListener('submit', redirecionarParaHome);*/

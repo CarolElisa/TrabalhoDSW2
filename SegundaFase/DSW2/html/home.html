@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RealizeJá - Dashboard</title>
     <link rel="stylesheet" href="../css/style.css">
-    <!-- Inclua o arquivo JavaScript -->
     <script src="../js/home.js" defer></script>
 </head>
 <body class="bg-gray-100 min-w-fit">
-    <!-- Header -->
     <div class="header flex justify-between items-center bg-blue-900 text-white p-4 w-full">
         <div class="logo flex items-center font-bold text-lg">
             <img src="../img/logo.png" alt="Logo RealizeJá" class="h-16 mr-10">
@@ -21,17 +19,14 @@
         </div>
     </div>
 
-    <!-- Main Content -->
     <div class="main-container w-full max-w-5xl mx-auto my-20 p-5 bg-white shadow-lg rounded-lg">
         <h1 class="text-3xl text-blue-900 mb-5">Bem-vindo(a), [Nome do Usuário]!</h1>
 
-        <!-- Alternar entre contratante e prestador -->
         <div class="toggle-role flex justify-between mb-5">
-            <button id="btn-contratante" class="bg-orange-500 text-white border-none p-3 rounded-md text-lg font-bold w-1/2 mr-2 active:bg-orange-600 hover:bg-orange-600">Sou Contratante</button>
-            <button id="btn-prestador" class="bg-orange-500 text-white border-none p-3 rounded-md text-lg font-bold w-1/2 ml-2 hover:bg-orange-600">Sou Prestador de Serviços</button>
+            <button id="btn-contratante" class="bg-orange-500 text-white p-3 rounded-md text-lg font-bold w-1/2 mr-2 active:bg-orange-600 hover:bg-orange-600">Sou Contratante</button>
+            <button id="btn-prestador" class="bg-orange-500 text-white p-3 rounded-md text-lg font-bold w-1/2 ml-2 hover:bg-orange-600">Sou Prestador de Serviços</button>
         </div>
 
-        <!-- Serviços Solicitados (Contratante) -->
         <div id="contratante-section" class="service-section mb-5">
             <h2 class="text-2xl text-gray-800 mb-3">Serviços Solicitados</h2>
             <table class="service-table w-full border-collapse overflow-x-auto table-auto mt-2">
@@ -44,24 +39,11 @@
                         <th class="bg-blue-900 text-white p-2 text-center">Ações</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr class="even:bg-gray-200 hover:bg-gray-300">
-                        <td class="border p-2 text-center">Conserto de Ar Condicionado</td>
-                        <td class="border p-2 text-center">Preciso de um técnico para conserto.</td>
-                        <td class="border p-2 text-center" id="distancia-solicitado-1">Calculando...</td>
-                        <td class="border p-2 text-center">Pendente</td>
-                        <td class="border p-2 text-center">
-                            <button class="action-btn bg-blue-900 text-white p-2 rounded-md hover:bg-blue-800" onclick="window.location.href='../html/editar_servico.html?id_servico=123'">Editar</button>
-                            <button class="action-btn bg-blue-900 text-white p-2 rounded-md hover:bg-blue-800">Excluir</button>
-                        </td>
-                    </tr>
-                    <!-- Mais serviços solicitados aqui -->
-                </tbody>
+                <tbody></tbody>
             </table>
-            <button class="action-btn bg-blue-900 text-white p-2 rounded-md mt-2 hover:bg-blue-800" onclick="window.location.href='../html/criar_servico.html?tipo=solicitacao'">Criar Nova Solicitação</button>
+            <button class="action-btn bg-blue-900 text-white p-2 rounded-md mt-2 hover:bg-blue-800" onclick="window.location.href='../html/criar_servico.html?tipo=solicitacao&userId=${userId}'">Criar Nova Solicitação</button>
         </div>
 
-        <!-- Serviços Oferecidos (Prestador) -->
         <div id="prestador-section" class="service-section mb-5 hidden">
             <h2 class="text-2xl text-gray-800 mb-3">Serviços Oferecidos</h2>
             <table class="service-table w-full border-collapse overflow-x-auto table-auto mt-2">
@@ -74,25 +56,12 @@
                         <th class="bg-blue-900 text-white p-2 text-center">Ações</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr class="even:bg-gray-200 hover:bg-gray-300">
-                        <td class="border p-2 text-center">Casa</td>
-                        <td class="border p-2 text-center">Serviços de Faxina.</td>
-                        <td class="border p-2 text-center" id="distancia-ofertado-1">Calculando...</td>
-                        <td class="border p-2 text-center">Desativado</td>
-                        <td class="border p-2 text-center">
-                            <button class="action-btn bg-blue-900 text-white p-2 rounded-md hover:bg-blue-800" onclick="window.location.href='../html/editar_servico.html?id_servico=123'">Editar</button>
-                            <button class="action-btn bg-blue-900 text-white p-2 rounded-md hover:bg-blue-800">Excluir</button>
-                        </td>
-                    </tr>
-                    <!-- Mais serviços oferecidos aqui -->
-                </tbody>
+                <tbody></tbody>
             </table>
-            <button class="action-btn bg-blue-900 text-white p-2 rounded-md mt-2 hover:bg-blue-800" onclick="window.location.href='../html/criar_servico.html?tipo=oferta'">Criar Nova Oferta</button>
+            <button class="action-btn bg-blue-900 text-white p-2 rounded-md mt-2 hover:bg-blue-800" onclick="window.location.href='../html/criar_servico.html?tipo=oferta&userId=${userId}'">Criar Nova Oferta</button>
         </div>
     </div>
 
-    <!-- Footer -->
     <div class="footer bg-blue-900 text-white text-center p-4 w-full">
         © 2024 <span class="text-orange-500 font-bold">RealizeJá</span> - Todos os direitos reservados
     </div>
