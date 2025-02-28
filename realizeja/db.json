@@ -1,0 +1,104 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "Kenny",
+      "email": "kenny@gmail.com",
+      "tel": "35997463405",
+      "senha": "142536",
+      "cep": "13565090",
+      "logradouro": "Ray Wesley",
+      "num": "135",
+      "cidade": "Sao Carlos",
+      "uf": "SP"
+    },
+    {
+      "id": "2",
+      "nome": "Admin",
+      "email": "admin@gmail.com",
+      "tel": "35997463405",
+      "senha": "123456",
+      "cep": "37901543",
+      "logradouro": "Rua Central",
+      "num": "250",
+      "cidade": "Passos",
+      "uf": "MG"
+    },
+    {
+      "id": "3",
+      "nome": "Maria Clara",
+      "email": "maria@gmail.com",
+      "tel": "11987654321",
+      "senha": "abcdef",
+      "cep": "01010101",
+      "logradouro": "Avenida Paulista",
+      "num": "500",
+      "cidade": "São Paulo",
+      "uf": "SP"
+    },
+    {
+      "id": "5c0f",
+      "nome": "JONATHAN BRAIAN DIAS VAZ",
+      "email": "jonathanbd.vaz@gmail.com",
+      "tel": "(35) 99746-3405",
+      "senha": "123",
+      "cep": "13564090",
+      "logradouro": "Rua João Ramalho",
+      "num": "135",
+      "cidade": "São Carlos",
+      "uf": "SP"
+    }
+  ],
+  "tarefas": [
+    {
+      "id": "102",
+      "tipo": "Oferta de Serviço",
+      "nome": "Manutenção de Computadores",
+      "descricao": "Reparo de hardware e software para computadores e notebooks.",
+      "categoria": "tecnologia",
+      "preco": "250",
+      "status": "Disponível",
+      "userId": "2"
+    },
+    {
+      "id": "103",
+      "tipo": "Solicitação de Serviço",
+      "nome": "Reforma de Banheiro",
+      "descricao": "Preciso de um pedreiro para reforma completa de um banheiro.",
+      "categoria": "construcao",
+      "preco": "5000",
+      "status": "Em andamento",
+      "userId": "3"
+    },
+    {
+      "id": "104",
+      "tipo": "Oferta de Serviço",
+      "nome": "Limpeza de Apartamento",
+      "descricao": "Serviço de faxina detalhada para apartamentos pequenos e médios.",
+      "categoria": "limpeza",
+      "preco": "180",
+      "status": "Disponível",
+      "userId": "2"
+    },
+    {
+      "id": "105",
+      "tipo": "Solicitação de Serviço",
+      "nome": "Consultoria em Marketing Digital",
+      "descricao": "Preciso de ajuda para melhorar a presença digital da minha empresa.",
+      "categoria": "tecnologia",
+      "preco": "700",
+      "status": "Concluído",
+      "userId": "1"
+    },
+    {
+      "id": "a92b",
+      "tipo": "oferta",
+      "nome": "dfbfdb",
+      "descricao": "dfbfdbfdb",
+      "categoria": "saude",
+      "preco": "dfbdfbdfb",
+      "status": "Pendente",
+      "userId": "5c0f"
+    }
+  ]
+}
