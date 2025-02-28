@@ -66,7 +66,11 @@ export default function HomeDashboard() {
 
   return (
     <div className="bg-gray-100 min-w-fit">
-      <Header />
+      <Header>
+        <Link to="/meus-dados" className="text-white ml-6 font-bold hover:underline">
+          Meus Dados
+        </Link>
+      </Header>
 
       <div className="w-full max-w-5xl mx-auto my-10 p-5 bg-white shadow-lg rounded-lg">
         {user && <h1 className="text-3xl text-blue-900 mb-5">Bem-vindo(a), {user.nome}!</h1>}

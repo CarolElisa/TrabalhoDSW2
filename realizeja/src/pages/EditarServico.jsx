@@ -111,10 +111,10 @@ export default function EditarServico() {
           <input type="text" name="preco" value={formData.preco} onChange={handleChange} className="p-2 border border-gray-300 rounded" />
 
           <div className="flex justify-between">
-            <button type="submit" className="bg-green-500 text-white p-2 rounded font-bold hover:bg-green-600">
+            <button type="submit" className="bg-orange-500 text-white p-2 rounded hover:bg-orange-600">
               Salvar Alterações
             </button>
-            <button type="button" onClick={handleDelete} className="bg-red-500 text-white p-2 rounded font-bold hover:bg-red-600">
+            <button type="button" onClick={handleDelete} className="bg-gray-300 text-gray-700 p-2 rounded font-bold hover:bg-gray-400">
               Excluir
             </button>
             <Link to={`/home?id=${formData.userId}`} className="bg-gray-300 text-gray-700 p-2 rounded font-bold hover:bg-gray-400">

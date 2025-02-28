@@ -8,9 +8,7 @@ export default function Header() {
         RealizeJá - Dashboard
       </div>
       <div className="flex">
-        <Link to="/meus-dados" className="text-white ml-5 font-bold hover:underline">
-          Meus Dados
-        </Link>
+
         <Link to="/" className="text-white ml-5 font-bold hover:underline">
           Sair
         </Link>

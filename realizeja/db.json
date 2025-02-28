@@ -47,6 +47,18 @@
       "num": "135",
       "cidade": "São Carlos",
       "uf": "SP"
+    },
+    {
+      "id": "df92",
+      "nome": "Josue Marcos",
+      "email": "josue@gmail.com",
+      "tel": "35999999699",
+      "senha": "123",
+      "cep": "37901723",
+      "logradouro": "Rua Berilo",
+      "num": "20",
+      "cidade": "Passos",
+      "uf": "MG"
     }
   ],
   "tarefas": [
@@ -99,6 +111,16 @@
       "preco": "dfbdfbdfb",
       "status": "Pendente",
       "userId": "5c0f"
+    },
+    {
+      "id": "5440",
+      "tipo": "oferta",
+      "nome": "Desenvolvimento de Sites",
+      "descricao": "Desenvolvo seu site completo",
+      "categoria": "tecnologia",
+      "preco": "1900",
+      "status": "Pendente",
+      "userId": "df92"
     }
   ]
 }
