@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (response.ok) {
           alert('Senha redefinida com sucesso!');
-          window.location.href = '../html/login.html'; // Redireciona para a página de login
+          window.location.href = 'login.html'; // Redireciona para a página de login
         } else {
           throw new Error('Erro ao redefinir senha');
         }
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (usuario) {
         // E-mail válido: redireciona para a mesma página com o ID do usuário
-        window.location.href = `../html/senha.html?id=${usuario.id}`;
+        window.location.href = `senha.html?id=${usuario.id}`;
       } else {
         // Exibe mensagem de erro
         alert('E-mail não encontrado. Verifique o e-mail digitado.');

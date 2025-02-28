@@ -47,6 +47,18 @@
       "num": "120",
       "cidade": "São Carlos",
       "uf": "SP"
+    },
+    {
+      "id": "5027",
+      "nome": "Caroline Elisa",
+      "email": "aaaa@gmail.com",
+      "tel": "16991144211",
+      "senha": "123",
+      "cep": "13571260",
+      "logradouro": "Avenida Gregório Aversa",
+      "num": "127",
+      "cidade": "São Carlos",
+      "uf": "SP"
     }
   ],
   "tarefas": [

@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             // Verifica se há um usuário com o email e senha fornecidos
             const usuario = usuarios.find((user)=>user.email === email && user.senha === senha);
             if (usuario) // Login bem-sucedido: redireciona para a página home.html com o ID do usuário
-            window.location.href = `../html/home.html?id=${usuario.id}`;
+            window.location.href = `home.html?id=${usuario.id}`;
             else {
                 // Exibe mensagem de erro
                 errorMessage.classList.remove('hidden');

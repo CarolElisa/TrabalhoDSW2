@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         preencherFormulario(usuario);
       } else {
         alert('Usuário não encontrado.');
-        window.location.href = '../html/login.html';
+        window.location.href = 'login.html';
       }
     } catch (error) {
       console.error('Erro ao buscar usuário:', error);
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (response.ok) {
         alert('Dados atualizados com sucesso!');
-        window.location.href = `../html/home.html?id=${userId}`; // Redireciona para a página home
+        window.location.href = `home.html?id=${userId}`; // Redireciona para a página home
       } else {
         throw new Error('Erro ao atualizar dados');
       }
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Evento para voltar à página home
   btnVoltar.addEventListener('click', () => {
-    window.location.href = `../html/home.html?id=${userId}`;
+    window.location.href = `home.html?id=${userId}`;
   });
 
   // Inicialização
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     buscarUsuario(userId);
   } else {
     alert('ID do usuário não fornecido.');
-    window.location.href = '../html/login.html';
+    window.location.href = 'login.html';
   }
 });
 
@@ -168,7 +168,7 @@ function redirecionarParaHome(event) {
     // });
 
     // Redireciona para a página inicial
-    window.location.href = "../html/home.html";
+    window.location.href = "home.html";
 }
 
 // Adiciona um evento para buscar o endereço quando o CEP for preenchido
@@ -179,7 +179,7 @@ document.getElementById('form-meus-dados').addEventListener('submit', redirecion
 
 // Adiciona um evento para o botão "Voltar"
 document.getElementById('btn-voltar').addEventListener('click', () => {
-    window.location.href = "../html/home.html";
+    window.location.href = "home.html";
 });
 
 */

@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
           carregarTarefas();
         } else {
           alert('Usuário não encontrado.');
-          window.location.href = '../html/login.html';
+          window.location.href = 'login.html';
         }
       } catch (error) {
         console.error('Erro ao buscar usuário:', error);
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // Função para editar uma tarefa
     window.editarTarefa = (tarefaId) => {
-      window.location.href = `../html/criar_servico.html?tipo=editar&id=${tarefaId}&userId=${userId}`;
+      window.location.href = `criar_servico.html?tipo=editar&id=${tarefaId}&userId=${userId}`;
     };
   
     // Função para excluir uma tarefa
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
       buscarUsuario(userId);
     } else {
       alert('ID do usuário não fornecido.');
-      window.location.href = '../html/login.html';
+      window.location.href = 'login.html';
     }
   });
 

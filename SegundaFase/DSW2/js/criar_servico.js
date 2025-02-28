@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
           preencherFormulario(tarefa);
         } else {
           alert('Tarefa não encontrada.');
-          window.location.href = `../html/home.html?id=${userId}`;
+          window.location.href = `home.html?id=${userId}`;
         }
       } catch (error) {
         console.error('Erro ao carregar tarefa:', error);
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
         if (response.ok) {
           alert(tarefaId ? 'Tarefa atualizada com sucesso!' : 'Tarefa criada com sucesso!');
-          window.location.href = `../html/home.html?id=${userId}`;
+          window.location.href = `home.html?id=${userId}`;
         } else {
           throw new Error('Erro ao salvar tarefa');
         }
@@ -90,6 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('tipo').value = tipo;
     } else {
       alert('Tipo de serviço não especificado.');
-      window.location.href = `../html/home.html?id=${userId}`;
+      window.location.href = `home.html?id=${userId}`;
     }
   });
